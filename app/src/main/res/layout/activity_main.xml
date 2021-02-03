@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".main.MainActivity"
+    android:paddingHorizontal="18dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/currencyconverter"
+        android:textColor="@color/black"
+        android:textSize="38sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.166"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.468" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="157dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/spFromCurrency"
+        app:layout_constraintEnd_toStartOf="@id/tvFromCurrency"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/spFromCurrency">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etAmount"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="numberDecimal"
+            android:hint="@string/amount"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvToCurrency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="To"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/spToCurrency"
+        app:layout_constraintTop_toBottomOf="@id/guideline" />
+
+    <TextView
+        android:id="@+id/tvFromCurrency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="From"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/spFromCurrency"
+        app:layout_constraintTop_toBottomOf="@id/guideline" />
+    <Spinner
+        android:id="@+id/spToCurrency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/currencyMenu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvToCurrency"
+        android:padding="18dp"/>
+
+    <Spinner
+        android:id="@+id/spFromCurrency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/currencyMenu"
+        app:layout_constraintEnd_toStartOf="@id/spToCurrency"
+        app:layout_constraintTop_toBottomOf="@id/tvFromCurrency"
+        android:padding="18dp"
+        android:layout_marginEnd="18dp"/>
+    <Button
+        android:id="@+id/btnConvert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spToCurrency"
+        android:layout_marginTop="10dp"
+        android:text="@string/convert"
+        android:textColor="@color/white"
+        android:background="@color/colorPrimary"/>
+    <TextView
+        android:id="@+id/tvResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btnConvert"
+        app:layout_constraintBottom_toBottomOf="@id/btnConvert"
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        tools:text="10 EUR = 15.0 USD"/>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/tvResult"
+        app:layout_constraintEnd_toEndOf="@id/tvResult"
+        app:layout_constraintTop_toTopOf="@id/tvResult"
+        app:layout_constraintBottom_toBottomOf="@id/tvResult"
+        android:visibility="gone"
+        tools:visibility="visible"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
